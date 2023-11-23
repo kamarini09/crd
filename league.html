@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="js.js"></script>
+
+    <title>League</title>
+  </head>
+  <body>
+    <main>
+      <div id="main-area">
+        <section class="header">
+          <section id="filter">
+            <div>
+              <h3>Houses</h3>
+              <button class="filter" data-action="filter" data-filter="team-a">Team A</button>
+              <button class="filter" data-action="filter" data-filter="team-b">Team B</button>
+              <button class="filter" data-action="filter" data-filter="junior">Junior</button>
+              <button class="filter" data-action="filter" data-filter="official">Official</button>
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+
+    <!-- template member list card -->
+    <template id="member">
+      <!-- <div id="single-member">
+        <div id="member-name"> -->
+      <!-- <img id="image" src="images/bones_s.png" alt="propic" /> -->
+      <p data-field="name">Name</p>
+      <p data-field="number">Number</p>
+      <!-- </div>
+      </div> -->
+    </template>
+  </body>
+</html>

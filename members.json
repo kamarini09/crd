@@ -1,0 +1,34 @@
+[
+    {
+      "league": "team-a",
+      "name": "Olivia",
+      "number":"5154",
+      "isLeade": false,
+      "isSkater": true
+    
+    },
+    {
+        "league": "team-b",
+        "name": "koukoumafka",
+        "number":"0909",
+        "isLeade": false,
+        "isSkater": true
+      
+      },
+      {
+        "league": "official",
+        "name": "Mari",
+        "number":"123",
+        "isLeade": false,
+        "isSkater": true
+      
+      },
+      {
+        "league": "junior",
+        "name": "Lillie",
+        "number":"904",
+        "isLeade": false,
+        "isSkater": true
+      
+      }
+  ]
