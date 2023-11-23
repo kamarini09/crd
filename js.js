@@ -96,7 +96,7 @@ function displayMember(member) {
 
   
   // append clone to list
-  document.querySelector("#member-list").appendChild(clone);
+  document.querySelector("#filter tbody").appendChild(clone);
   
 }
 
