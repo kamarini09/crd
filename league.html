@@ -18,18 +18,19 @@
         <button class="filter" data-action="filter" data-filter="junior">Junior</button>
         <button class="filter" data-action="filter" data-filter="official">Official</button>
       </section>
-      <table id="list">
-        <tbody>
+      <div id="list-container">
+        <div id="list">
           <!-- animal template will be copied and inserted here -->
-        </tbody>
-      </table>
+        </div>
+      </div>
     </main>
 
-    <template id="member">
-      <tr>
-        <td data-field="name">Name</td>
-        <td data-field="number">Number</td>
-      </tr>
+    <template>
+      <article class="members">
+        <img id="image" src="" alt="propic" />
+        <h1 data-field="name">Name</h1>
+        <p data-field="number">Number</p>
+      </article>
     </template>
   </body>
 </html>

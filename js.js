@@ -1,10 +1,5 @@
 "use strict";
 
-
-
-// const endpoint = "https://petlatkea.dk/2021/hogwarts/students.json";
-
-
 window.addEventListener("DOMContentLoaded", start);
 
 let  allMembers = [];
@@ -14,8 +9,7 @@ const Member = {
     league: "",
     name: "",
     number: "",
-    image: "",
-    isSkater: null,
+    picture_name: "",
     isLeader: null
 };
 function start() {
@@ -38,6 +32,7 @@ function selectFilter(event){
 
  function setFilter(filter){
     globalObject.filterBy = filter;
+    console.log(filter);
     buildList();
 }
 function filterList(filteredList){
@@ -79,7 +74,7 @@ function preapareObject( jsonObject ) {
     member.name = jsonObject.name;
     member.number = jsonObject.number;
     member.isLeader = jsonObject.isLeader;
-    member.isSkater = jsonObject.isSkater;
+    member.picture_name = jsonObject.picture_name;
   return member;
 }
 
@@ -91,30 +86,20 @@ function buildList() {
 
 
 function displayList(members) {
-  
-//   // clear the list
- document.querySelector("#list tbody").innerHTML = "";
-
-   members.forEach(displayMember);
-// // build a new list
-  
+  document.querySelector("#list").innerHTML = "";
+  members.forEach(displayMember);  
 }
 
 function displayMember(member) {
-  // create clone
-  const clone = document.querySelector("template#member").content.cloneNode(true);
+  const clone = document.querySelector("template").content.cloneNode(true);
 
-  // set clone data
-  // clone.querySelector("#image").src = student.image;
-  console.log(member.name)
-  console.log(member.number)
-
+  clone.querySelector("#image").src = `pictures/${member.picture_name}.jpg`;
+  console.log(member.picture_name)
   clone.querySelector("[data-field=name]").textContent = member.name;
   clone.querySelector("[data-field=number]").textContent = "#" + member.number;
   
-  // append clone to list
-  document.querySelector("#list tbody").appendChild(clone);
-  
+  document.querySelector("#list").appendChild(clone);
+
 }
 
 
