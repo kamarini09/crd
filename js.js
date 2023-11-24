@@ -21,23 +21,8 @@ const Member = {
 function start() {
   console.log("ready");
   triggerButtons();
-  loadJSON();
+  get()
 }
-
-//--------------------MODEL--------------------------
-// function loadJSON() {
-//   fetch(endpoint)
-//     .then((response) => response.json())
-//     .then((jsonData) => {
-//       // when loaded, prepare objects
-//       prepareObjects(jsonData);
-//     });
-// }
-
-
- //--------------------------------VIEW--------------------------------
- 
- 
 
 function triggerButtons(){
 
@@ -48,8 +33,7 @@ function triggerButtons(){
 //--------------------filtering--------------------------
 function selectFilter(event){
   const filter = event.target.dataset.filter;
- //filterList(filter);
- setFilter(filter);
+  setFilter(filter);
 }
 
  function setFilter(filter){
@@ -72,25 +56,22 @@ function filterList(filteredList){
  
 }
 
- 
-  
-
-  
-async function loadJSON() {
-  console.log("im in loadJson")
-
-  const response = await fetch("members.json");
-  const jsonData = await response.json();
-  
-  // when loaded, prepare data objects
-  prepareObjects( jsonData );
- 
+function get(){
+  fetch("https://cphrollerderby-d0de.restdb.io/rest/members", {
+       method:"get",
+       headers: {
+        "Content-Type" : "application/json; charset-utf-8",
+        "x-apikey": "656097d944427a88de396c6f",
+        "cache-control" : "no-cache"
+       }
+   })
+    .then(e => e.json())
+    .then( prepareObjects);
 }
 
 function prepareObjects( jsonData ) {
-  allMembers = jsonData.map( preapareObject ); //it can be done with foEach but it needs a different syntax
-  // displayList(allMembers);
-   buildList();
+  allMembers = jsonData.map( preapareObject ); 
+  buildList();
 }
 function preapareObject( jsonObject ) {
   const member = Object.create(Member);
