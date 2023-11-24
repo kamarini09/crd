@@ -37,87 +37,7 @@ function start() {
 
  //--------------------------------VIEW--------------------------------
  
- function buildList() {
-  const currentList = filterList(allMembers);
-  displayList(currentList);
-  
-
-}
- function displayList(members) {
-  
-//   // clear the list
- document.querySelector("#member ").innerHTML = "";
-
-   members.forEach(displayMember);
-// // build a new list
-  
-}
-
-function displayMember(member) {
-  // create clone
-  const clone = document.querySelector("template#member").content.cloneNode(true);
-
-  // set clone data
-  // clone.querySelector("#image").src = student.image;
-  console.log(member.name)
-  console.log(member.number)
-
-  clone.querySelector("[data-field=name]").textContent = member.name;
-  
-  clone.querySelector("[data-field=number]").textContent = member.number;
-
  
-   
- 
-
-  
-  // if(member.league === "team-a"){
-  //   clone.querySelector("#single-member").classList.add("team-a");
-
-  // }else if(member.house === "team-b"){
-  //   clone.querySelector("#single-member").classList.add("team-b");
-  // }else if(member.house === "junior"){
-  //   clone.querySelector("#single-member").classList.add("junior");
-
-  // }else{
-  //   clone.querySelector("#single-member").classList.add("official");
-  // }
-
-  
-  
-  document.querySelector(".team-a span").textContent = allMembers.filter(member => member.league==="team-a").length;
-  document.querySelector(".team-b span").textContent = allMembers.filter(member => member.league==="team-b").length;
-  document.querySelector(".junior span").textContent = allMembers.filter(member => member.league==="junior").length;
-  document.querySelector(".official span").textContent = allMembers.filter(member => member.league==="official").length;
- 
-
-
-
-
-  
-  // append clone to list
-  document.querySelector("#filter tbody").appendChild(clone);
-  
-}
-
-
-//------------------------CONTROLER-----------------------------------
-
-//-----------------------cleaning data--------------------------------
-
-    
-
-
-
-
-
-
-
-
-  
- 
-//--------------------triggerButtons--------------------------
-
 
 function triggerButtons(){
 
@@ -139,7 +59,7 @@ function selectFilter(event){
 function filterList(filteredList){
 
   if (globalObject.filterBy !== "*") {
-      filteredList = allMembers.filter(function whichAnimal(member){ //its a differnet way with closure
+      filteredList = allMembers.filter(function whichMember(member){ //its a differnet way with closure
           if (member.league === globalObject.filterBy ){
               return true;
           }else{
@@ -164,7 +84,7 @@ async function loadJSON() {
   
   // when loaded, prepare data objects
   prepareObjects( jsonData );
-  console.log("im in loadJson")
+ 
 }
 
 function prepareObjects( jsonData ) {
@@ -182,6 +102,39 @@ function preapareObject( jsonObject ) {
   return member;
 }
 
+
+function buildList() {
+  const currentList = filterList(allMembers);
+  displayList(currentList);
+}
+
+
+function displayList(members) {
+  
+//   // clear the list
+ document.querySelector("#list tbody").innerHTML = "";
+
+   members.forEach(displayMember);
+// // build a new list
+  
+}
+
+function displayMember(member) {
+  // create clone
+  const clone = document.querySelector("template#member").content.cloneNode(true);
+
+  // set clone data
+  // clone.querySelector("#image").src = student.image;
+  console.log(member.name)
+  console.log(member.number)
+
+  clone.querySelector("[data-field=name]").textContent = member.name;
+  clone.querySelector("[data-field=number]").textContent = "#" + member.number;
+  
+  // append clone to list
+  document.querySelector("#list tbody").appendChild(clone);
+  
+}
 
 
 

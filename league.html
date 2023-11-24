@@ -11,31 +11,29 @@
   </head>
   <body>
     <main>
-      <div id="main-area">
-        <section id="filter">
-          <div>
-            <h3>Houses</h3>
-            <button class="filter" data-action="filter" data-filter="team-a">Team A</button>
-            <button class="filter" data-action="filter" data-filter="team-b">Team B</button>
-            <button class="filter" data-action="filter" data-filter="junior">Junior</button>
-            <button class="filter" data-action="filter" data-filter="official">Official</button>
-          </div>
-          <tbody>
-            <!-- animal template will be copied and inserted here -->
-          </tbody>
-        </section>
-      </div>
+      <section>
+        <h3>Houses</h3>
+        <button class="filter" data-action="filter" data-filter="team-a">Team A</button>
+        <button class="filter" data-action="filter" data-filter="team-b">Team B</button>
+        <button class="filter" data-action="filter" data-filter="junior">Junior</button>
+        <button class="filter" data-action="filter" data-filter="official">Official</button>
+      </section>
+      <table id="list">
+        <thead>
+          <th data-action="sort" data-sort-direction="asc" data-sort="name">Name</th>
+          <th data-action="sort" data-sort-direction="asc" data-sort="number">Number</th>
+        </thead>
+        <tbody>
+          <!-- animal template will be copied and inserted here -->
+        </tbody>
+      </table>
     </main>
 
-    <!-- template member list card -->
     <template id="member">
-      <!-- <div id="single-member">
-        <div id="member-name"> -->
-      <!-- <img id="image" src="images/bones_s.png" alt="propic" /> -->
-      <p data-field="name">Name</p>
-      <p data-field="number">Number</p>
-      <!-- </div>
-      </div> -->
+      <tr>
+        <td data-field="name">Name</td>
+        <td data-field="number">Number</td>
+      </tr>
     </template>
   </body>
 </html>
